@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<title>User Register</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+		<meta charset="UTF-8">
+		<link type="text/css"  rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}"/>
+		<link type="text/css"  rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-responsive.css') }}"/>
+		<link type="text/css"  rel="stylesheet" href="{{ url_for('static', filename='css/calendar.min.css') }}"/>
+	</head>
+	<body>
+		<div class="userregistration">
+			<h1>Register Here</h1>
+
+			<form action="{{ url_for('userregistration') }}" method="post" autocomplete="off">
+				<div class="msg">{{ msg }}</div>
+
+				<label for="username">
+					<i class="fas fa-user"></i>
+				</label>
+				<input type="text" name="username" placeholder="Username" id="username" required>
+				<label for="password">
+					<i class="fas fa-lock"></i>
+				</label>
+				<input type="password" name="password" placeholder="Password" id="password" required>
+
+				<br>
+				<br>
+				<label for="username">
+					<i class="fas fa-user"></i>
+				</label>
+				<input type="text" name="firstname" placeholder="First Name" id="firstname" required>
+				<input type="text" name="middlename" placeholder="Middle Name" id="middlename">
+				<input type="text" name="lastname" placeholder="Last Name" id="lastname" required>
+
+				<br>
+				<br>
+				<label for="email">
+					<i class="fas fa-envelope"></i>
+				</label>
+				<input type="email" name="email" placeholder="Email" id="email" required>
+
+				<br>
+				<br>
+				<label for="birthdate">
+					<i class="fas fa-birthday-cake"></i>
+				</label>
+				<input type="date" name="birthdate" placeholder="Birth date" id="birthdate" required>
+				<br>
+				<br>
+
+				<div class="btn-group">
+					<form action="{{ url_for('login') }}">
+						<button class="btn" >Register</button>
+					</form>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>cancel appointment</title>
+        <meta charset="UTF-8">
+		<link type="text/css"  rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}"/>
+		<link type="text/css"  rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-responsive.css') }}"/>
+		<link type="text/css"  rel="stylesheet" href="{{ url_for('static', filename='css/calendar.min.css') }}"/>
+	</head>
+	<body>
+
+		<div class="cancelappointment">
+			<h1>Cancel Appoitnment</h1>
+            <br>
+
+            <p>Select Appointment ID to Delete</p>
+
+            <form action="{{ url_for('cancelappointment') }}" method="POST" autocomplete="off">
+                <div class="btn-group">
+<!--                    <select type="text" id="client_id" name="client_id" class="span1">-->
+<!--                        {% for row in value %}-->
+<!--                        <option value="row[0]" >{{row[0]}}</option>-->
+<!--                        {% endfor %}-->
+<!--                    </select>-->
+                    <input type="text" name="id" placeholder="ID" id="id" required>
+                    <br>
+					    <button class="btn btn-warning" >Cancel Appointment</button>
+			    </div>
+            </form>
+            <br>
+            <br>
+
+				<table>
+                    <thead>
+                    <tr>
+                        <th>ID &nbsp; &nbsp; </th>
+                        <th>Title &nbsp; &nbsp;</th>
+                        <th>URL &nbsp;&nbsp;</th>
+                        <th>Class&nbsp;&nbsp;</th>
+                        <th>Start Date/Time&nbsp;&nbsp;&nbsp; </th>
+                        <th>Stop Date/Time&nbsp;&nbsp;&nbsp;&nbsp;</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in value %}
+                            <tr>
+                                <td>{{row[0]}}</td>
+                                <td>{{row[1]}}</td>
+                                <td>{{row[2]}}</td>
+                                <td>{{row[3]}}</td>
+                                <td>{{row[4]}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                <td>{{row[5]}}</td>
+<!--                                <td><input type="checkbox" id="client_checkbox" name="client_checkbox" value="client_checkbox"></td>-->
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+		</div>
+        <br>
+        <br>
+        <a href="calendar">Go Back to Calendar</a>
+	</body>
+</html>

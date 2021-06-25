@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Modify Client</title>
+        <meta charset="UTF-8">
+		<link type="text/css"  rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}"/>
+		<link type="text/css"  rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-responsive.css') }}"/>
+		<link type="text/css"  rel="stylesheet" href="{{ url_for('static', filename='css/calendar.min.css') }}"/>
+	</head>
+	<body>
+
+		<div class="manageclient">
+			<h1>Client Management</h1>
+            <br>
+            <table>
+                    <thead>
+                    <tr>
+                        <th>ID &nbsp; &nbsp; </th>
+                        <th>First Name &nbsp; &nbsp;</th>
+                        <th>Last Name &nbsp;&nbsp;</th>
+                        <th>Middle Name&nbsp;&nbsp;</th>
+                        <th>Email&nbsp;&nbsp;&nbsp; </th>
+                        <th>Phone Number&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                        <th>Date of Birth&nbsp;&nbsp;</th>
+                        <th>Gender&nbsp;&nbsp;</th>
+                        <th>Height&nbsp;&nbsp;</th>
+                        <th>Weight&nbsp;&nbsp;</th>
+                        <th>Background&nbsp;&nbsp;</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in value %}
+                            <tr>
+                                <td>{{row[0]}}</td>
+                                <td>{{row[1]}}</td>
+                                <td>{{row[2]}}</td>
+                                <td>{{row[3]}}</td>
+                                <td>{{row[4]}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                <td>{{row[5]}}</td>
+                                <td>{{row[6]}}</td>
+                                <td>{{row[7]}}</td>
+                                <td>{{row[8]}}</td>
+                                <td>{{row[9]}}</td>
+                                <td>{{row[10]}}</td>
+<!--                                <td><input type="checkbox" id="client_checkbox" name="client_checkbox" value="client_checkbox"></td>-->
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+            <br>
+            <p>Select Client_ID to Modify</p>
+
+            <form action="{{ url_for('modifyclient') }}" method="POST" autocomplete="off">
+                <div class="btn-group">
+<!--                    <select type="text" id="client_id" name="client_id" class="span1">-->
+<!--                        {% for row in value %}-->
+<!--                        <option value="row[0]" >{{row[0]}}</option>-->
+<!--                        {% endfor %}-->
+<!--                    </select>-->
+                    <input type="text" name="client_id" placeholder="Client ID" id="client_id" required>
+                    <label for="firstname">
+					<i class="fas fa-user"></i>
+				</label>
+				<input type="text" name="firstname" placeholder="First Name" id="firstname">
+				<input type="text" name="middlename" placeholder="Middle Name" id="middlename">
+				<input type="text" name="lastname" placeholder="Last Name" id="lastname">
+
+
+				<label for="clientemail">
+					<i class="fas fa-envelope"></i>
+				</label>
+				<input type="email" name="email" placeholder="Email" id="clientemail" >
+
+
+				<label for="phonenumber">
+					<i class="fas fa-phone"></i>
+				</label>
+				<input type="text" name="phonenumber" placeholder="Phone Number" id="phonenumber">
+
+
+				<label for="birthdate">
+					<i class="fas fa-birthday-cake"></i>
+				</label>
+				<input type="date" name="birthdate" placeholder="Birth date" id="birthdate" >
+
+
+				<label for="gender">
+					<i class="fas fa-venus-mars"></i>
+				</label>
+				<input type="text" name="gender" placeholder="Gender" id="gender">
+
+
+				<label for="height">
+					<i class="fas fa-ruler-vertical"></i>
+				</label>
+				<input type="text" name="height" placeholder="Height" id="height" >
+
+
+				<label for="weight">
+					<i class="fas fa-weight"></i>
+				</label>
+				<input type="text" name="weight" placeholder="Weight" id="weight" >
+
+
+				<label for="background">
+					<i class="fas fa-dumbbell"></i>
+				</label>
+				<input type="text" name="background" placeholder="Background" id="background">
+                <br>
+					    <button class="btn btn-warning" >Modify Client</button>
+			    </div>
+            </form>
+
+		</div>
+        <br>
+        <a href="calendar">&nbsp;Go Back to Calendar</a>
+	</body>
+</html>

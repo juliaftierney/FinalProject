@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Remove Client</title>
+        <meta charset="UTF-8">
+		<link type="text/css"  rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}"/>
+		<link type="text/css"  rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-responsive.css') }}"/>
+		<link type="text/css"  rel="stylesheet" href="{{ url_for('static', filename='css/calendar.min.css') }}"/>
+	</head>
+	<body>
+
+		<div class="manageclient">
+			<h1>Client Management</h1>
+            <br>
+
+            <p>Select Client_ID to Delete</p>
+
+            <form action="{{ url_for('manageclient') }}" method="POST" autocomplete="off">
+                <div class="btn-group">
+<!--                    <select type="text" id="client_id" name="client_id" class="span1">-->
+<!--                        {% for row in value %}-->
+<!--                        <option value="row[0]" >{{row[0]}}</option>-->
+<!--                        {% endfor %}-->
+<!--                    </select>-->
+                    <input type="text" name="client_id" placeholder="Client ID" id="client_id" required>
+                    <br>
+					    <button class="btn btn-warning" >Delete Client</button>
+			    </div>
+            </form>
+            <br>
+            <br>
+
+				<table>
+                    <thead>
+                    <tr>
+                        <th>ID &nbsp; &nbsp; </th>
+                        <th>First Name &nbsp; &nbsp;</th>
+                        <th>Last Name &nbsp;&nbsp;</th>
+                        <th>Middle Name&nbsp;&nbsp;</th>
+                        <th>Email&nbsp;&nbsp;&nbsp; </th>
+                        <th>Phone Number&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                        <th>Date of Birth&nbsp;&nbsp;</th>
+                        <th>Gender&nbsp;&nbsp;</th>
+                        <th>Height&nbsp;&nbsp;</th>
+                        <th>Weight&nbsp;&nbsp;</th>
+                        <th>Background&nbsp;&nbsp;</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in value %}
+                            <tr>
+                                <td>{{row[0]}}</td>
+                                <td>{{row[1]}}</td>
+                                <td>{{row[2]}}</td>
+                                <td>{{row[3]}}</td>
+                                <td>{{row[4]}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                <td>{{row[5]}}</td>
+                                <td>{{row[6]}}</td>
+                                <td>{{row[7]}}</td>
+                                <td>{{row[8]}}</td>
+                                <td>{{row[9]}}</td>
+                                <td>{{row[10]}}</td>
+<!--                                <td><input type="checkbox" id="client_checkbox" name="client_checkbox" value="client_checkbox"></td>-->
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+		</div>
+        <br>
+        <br>
+        <a href="calendar">Go Back to Calendar</a>
+	</body>
+</html>

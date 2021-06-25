@@ -1,0 +1,86 @@
+<html> 
+	<head>
+		<title>Register Client Page</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+		<meta charset="UTF-8">
+		<link type="text/css"  rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}"/>
+		<link type="text/css"  rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-responsive.css') }}"/>
+		<link type="text/css"  rel="stylesheet" href="{{ url_for('static', filename='css/calendar.min.css') }}"/>
+	</head> 
+	<body>
+		<h1>Register Client Page</h1>
+			<form action="{{ url_for('signup') }}" method="post" autocomplete="off">
+
+				<div class="msg">{{ msg }}</div>
+
+				<label for="firstname">
+					<i class="fas fa-user"></i>
+				</label>
+				<input type="text" name="firstname" placeholder="First Name" id="firstname" required>
+				<input type="text" name="middlename" placeholder="Middle Name" id="middlename">
+				<input type="text" name="lastname" placeholder="Last Name" id="lastname" required>
+				<br>
+				<br>
+
+				<label for="clientemail">
+					<i class="fas fa-envelope"></i>
+				</label>
+				<input type="email" name="email" placeholder="Email" id="clientemail" required>
+				<br>
+				<br>
+
+				<label for="phonenumber">
+					<i class="fas fa-phone"></i>
+				</label>
+				<input type="text" name="phonenumber" placeholder="Phone Number" id="phonenumber" required>
+				<br>
+				<br>
+
+				<label for="birthdate">
+					<i class="fas fa-birthday-cake"></i>
+				</label>
+				<input type="date" name="birthdate" placeholder="Birth date" id="birthdate" required>
+				<br>
+				<br>
+
+				<label for="gender">
+					<i class="fas fa-venus-mars"></i>
+				</label>
+				<input type="text" name="gender" placeholder="Gender" id="gender" required>
+				<br>
+				<br>
+
+				<label for="height">
+					<i class="fas fa-ruler-vertical"></i>
+				</label>
+				<input type="text" name="height" placeholder="Height ex.5.9" id="height" required>
+				<br>
+				<br>
+
+				<label for="weight">
+					<i class="fas fa-weight"></i>
+				</label>
+				<input type="text" name="weight" placeholder="Weight (lbs)" id="weight" required>
+				<br>
+				<br>
+
+				<label for="background">
+					<i class="fas fa-dumbbell"></i>
+				</label>
+				<select id="background" name="background" class="span4">
+					<option value="beginner" selected="selected">Beginner</option>
+					<option value="intermediate" > Intermediate</option>
+					<option value="expert">Expert</option>
+				</select>
+				<br>
+				<br>
+
+				<div class="btn-group">
+						<button action="{{ url_for('signup') }}" class="btn" >Register</button>
+				</div>
+				<br>
+				<a href="calendar">&nbsp;Go Back to Calendar </a>
+			</form>				
+	</body>
+</html> 

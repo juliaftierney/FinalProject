@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Schedule Appointment</title>
+		<meta charset="UTF-8">
+		<link type="text/css"  rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}"/>
+		<link type="text/css"  rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-responsive.css') }}"/>
+	</head>
+	<body>
+		<div class="event">
+			<h1>Reschedule/Modify an appointment with your clients</h1>
+			<div class="links">
+			</div>
+			<form action="{{ url_for('rescheduleappointment') }}" method="POST" autocomplete="off">
+
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID &nbsp; &nbsp; </th>
+                        <th>Title &nbsp; &nbsp;</th>
+                        <th>URL &nbsp;&nbsp;</th>
+                        <th>Class&nbsp;&nbsp;</th>
+                        <th>Start Date/Time&nbsp;&nbsp;&nbsp; </th>
+                        <th>Stop Date/Time&nbsp;&nbsp;&nbsp;&nbsp;</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in value %}
+                            <tr>
+                                <td>{{row[0]}}</td>
+                                <td>{{row[1]}}</td>
+                                <td>{{row[2]}}</td>
+                                <td>{{row[3]}}</td>
+                                <td>{{row[4]}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                <td>{{row[5]}}</td>
+<!--                                <td><input type="checkbox" id="client_checkbox" name="client_checkbox" value="client_checkbox"></td>-->
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+				<br>
+				<br>
+                <p>Choose Appointment ID</p>
+                <input type="text" name="id" placeholder="id" id="id" required>
+
+                <p>Enter the title</p>
+				<input type="text" name="title" placeholder="Title" id="title" >
+
+<!--				DropDown Menu of WorkOuts-->
+
+
+				<p>Select the Workout</p>
+				<select id="url" name="url" class="span4">
+						<option value="Cardio" selected="selected">Cardio</option>
+						<option value="Abs">Abs</option>
+						<option value="Arms">Arms</option>
+						<option value="Compound">Compound</option>
+						<option value="Legs">Legs</option>
+						<option value="Shoulders">Shoulders</option>
+				</select>
+
+<!--					DropDown Menu For Time of Class-->
+				<p>Enter the Class</p>
+				<select id="classname" name="classname" class="span4">
+						<option value="early-morning" selected="selected">Early Morning 6-9am</option>
+						<option value="morning" > Morning 9-12pm</option>
+						<option value="afternoon">Afternoon 12-3pm</option>
+						<option value="late-afternoon">Late Afternoon 3-6pm</option>
+						<option value="evening">Evening 6-9pm</option>
+						<option value="night">Night 9pm+</option>
+				</select>
+
+
+				<p>Enter the Startdate</p>
+				<input type="timestamp-local" name="startdate" placeholder="2020-11-14 11:30" id="startdate" >
+
+				<p>Enter the Enddate</p>
+				<input type="timestamp-local" name="enddate" placeholder="2020-11-14 14:00" id="enddate" >
+				<br>
+				<br>
+				<div class="msg">{{ msg }}</div>
+				<button class="btn btn-warning" >Reschedule Event</button>
+				<br>
+				<br>
+				<a href="calendar">Go Back to Calendar</a>
+
+			</form>
+		</div>
+	</body>
+</html>

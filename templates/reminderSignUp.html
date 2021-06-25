@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Inquiry</title>
+        <meta charset="UTF-8">
+		<link type="text/css"  rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}"/>
+		<link type="text/css"  rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-responsive.css') }}"/>
+		<link type="text/css"  rel="stylesheet" href="{{ url_for('static', filename='css/calendar.min.css') }}"/>
+	</head>
+	<body>
+
+		<div class="reminderSignUp">
+			<h1>Email Reminder Management</h1>
+            <br>
+
+            <p>Select Message ID to Delete</p>
+
+            <form action="{{ url_for('reminderSignUp') }}" method="POST" autocomplete="off">
+                <div class="btn-group">
+<!--                    <select type="text" id="client_id" name="client_id" class="span1">-->
+<!--                        {% for row in value %}-->
+<!--                        <option value="row[0]" >{{row[0]}}</option>-->
+<!--                        {% endfor %}-->
+<!--                    </select>-->
+                    <input type="text" name="reminder_id" placeholder="Reminder ID" id="reminder_id" required>
+					    <button class="btn btn-warning" >Delete Message</button>
+			    </div>
+            </form>
+            <br>
+            <br>
+
+				<table>
+                    <thead>
+                    <tr>
+                        <th>ID &nbsp; &nbsp; </th>
+                        <th>Name &nbsp; &nbsp;</th>
+                        <th>Email &nbsp;&nbsp;</th>
+
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in value %}
+                            <tr>
+                                <td>{{row[0]}}</td>
+                                <td>{{row[1]}}</td>
+                                <td>{{row[2]}}</td>
+<!--                                <td><input type="checkbox" id="client_checkbox" name="client_checkbox" value="client_checkbox"></td>-->
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+		</div>
+        <br>
+        <br>
+        <a href="calendar">Go Back to Calendar</a>
+	</body>
+</html>

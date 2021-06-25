@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	  <title>Personal Trainer Web App Log In</title>
+	  <meta charset="UTF-8">
+	  <link type="text/css"  rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}"/>
+	  <link type="text/css"  rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-responsive.css') }}"/>
+	  <link type="text/css"  rel="stylesheet" href="{{ url_for('static', filename='css/calendar.min.css') }}"/>
+  </head>
+  <body>
+        <h1>Please Sign In</h1>
+
+        <form action="{{ url_for('login') }}" method="post" autocomplete="off">
+				<label for="username">
+					<i class="fas fa-user"></i>
+				</label>
+				<input type="text" name="username" placeholder="Username" id="username" required>
+				<label for="password">
+					<i class="fas fa-lock"></i>
+				</label>
+				<input type="password" name="password" placeholder="Password" id="password" required>
+					<i class="fas fa-envelope"></i>
+				<div class="msg">{{ msg }}</div>
+
+				<div class="btn-group">
+					<button action="{{ url_for('calendar') }}" class="btn" >Login</button>
+				</div>
+				<br>
+
+
+		</form>
+		<form action="{{ url_for('userregistration') }}" method="post" autocomplete="off">
+  			<div class="btn-group">
+					<button action="{{ url_for('userregistration') }}" class="btn btn-warning" >Register Here</button>
+			</div>
+		</form>
+  </body>
+</html>

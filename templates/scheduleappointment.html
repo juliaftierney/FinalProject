@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Schedule Appointment</title>
+		<meta charset="UTF-8">
+		<link type="text/css"  rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}"/>
+		<link type="text/css"  rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-responsive.css') }}"/>
+	</head>
+	<body>
+	<h1>Create an appointment for your clients</h1>
+	<div class="links">
+	</div>
+	<form action="{{ url_for('scheduleappointment') }}" method="post" autocomplete="off">
+		<p>Enter the title</p>
+		<input type="text" name="title" placeholder="Title" id="title" required>
+
+		<!--				DropDown Menu of WorkOuts-->
+		<p>Select the Workout</p>
+		<select id="url" name="url" class="span4">
+			<option value="Cardio" selected="selected">Cardio</option>
+			<option value="Abs">Abs</option>
+			<option value="Arms">Arms</option>
+			<option value="Compound">Compound</option>
+			<option value="Legs">Legs</option>
+			<option value="Shoulders">Shoulders</option>
+		</select>
+
+		<!--					DropDown Menu For Time of Class-->
+		<p>Enter the Class</p>
+		<select id="classname" name="classname" class="span4">
+			<option value="early-morning" selected="selected">Early Morning 6-9am</option>
+			<option value="morning" > Morning 9-12pm</option>
+			<option value="afternoon">Afternoon 12-3pm</option>
+			<option value="late-afternoon">Late Afternoon 3-6pm</option>
+			<option value="evening">Evening 6-9pm</option>
+			<option value="night">Night 9pm+</option>
+		</select>
+
+
+		<p>Enter the Startdate</p>
+		<input type="timestamp-local" name="startdate" placeholder="2020-11-14 11:30" id="startdate" required>
+
+		<br>
+		<p>Enter the Enddate</p>
+		<input type="timestamp-local" name="enddate" placeholder="2020-11-14 14:00" id="enddate" required>
+		<br>
+		<br>
+		<div class="msg">{{ msg }}</div>
+		<br>
+		<button class="btn btn-warning" >Schedule Appointment</button>
+		<br>
+				<br>
+
+
+			</form>
+			<a href="calendar">&nbsp;Go Back to Calendar</a>
+		</div>
+
+	</body>
+</html>
