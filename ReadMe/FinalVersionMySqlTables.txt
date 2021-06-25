@@ -1,0 +1,58 @@
+﻿mysql> create table user
+          (
+    	  user_id int(11) not null AUTO_INCREMENT,
+          user_firstname varchar(25) not null,
+          user_lastname varchar(25) not null,
+          user_middlename varchar(25) not null,
+          user_email varchar(25) not null,
+          user_username varchar(25) not null,
+          user_password varchar(25) not null,
+          user_birthdate date not null,
+          constraint User_PK primary key (user_id),
+          constraint UC_username unique (user_username) );
+
+mysql> create table client
+    	  (
+          client_id int(11) not null AUTO_INCREMENT,
+          client_firstname varchar(25) not null,
+          client_lastname varchar(25) not null,
+          client_middlename varchar(25) not null,
+          client_email varchar(25) not null,
+          client_phonenumber varchar(10) not null,
+          client_birthdate date not null,
+          client_gender varchar(10) not null,
+          client_height float(5) not null,
+          client_weight float(6) not null,
+          client_background varchar(20) not null,
+          constraint Client_PK primary key (client_id) );
+
+mysql> create table event
+     	  (
+    	  `id` int unsigned NOT NULL AUTO_INCREMENT,
+          `title` varchar(255) NOT NULL,
+          `url` varchar(255) NOT NULL,
+          `class` varchar(255) NOT NULL,
+          `start_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+          `end_date` timestamp NOT NULL,
+          PRIMARY KEY (`id`)
+          ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+mysql> create table contact
+     (
+     contact_id int(11) not null AUTO_INCREMENT,
+     contact_firstname varchar(25) not null,
+     contact_lastname varchar(25) not null,
+     contact_phonenumber varchar(10) not null,
+     contact_email varchar(25) not null,
+     contact_subject varchar(150) not null,
+     constraint contactID_PK primary key (contact_id) );
+
+mysql> create table reminder
+     (
+     reminder_id int(11) not null AUTO_INCREMENT,
+     reminder_name varchar(50) not null,
+     reminder_email varchar(25) not null,
+     constraint reminderID_PK primary key (reminder_id) );
+
+
+
